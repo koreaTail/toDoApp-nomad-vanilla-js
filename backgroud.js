@@ -17,8 +17,8 @@ function paitImage(imgNumber){
     //반복제거, url
     backgroundcenter.style.backgroundRepeat = "no-repeat";
     //이미지 등록
-    backgroundcenter.style.backgroundImage = `url("/images/${imgNumber + 1}.jpg")`;
-    // backgroundcenter.style.backgroundImage = 'url("/images/(2).jpg")'
+    backgroundcenter.style.backgroundImage = `url("./images/${imgNumber + 1}.jpg")`;
+    // backgroundcenter.style.backgroundImage = 'url("./images/(2).jpg")'
     }
 
 

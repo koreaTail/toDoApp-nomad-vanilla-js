@@ -41,7 +41,7 @@ function loadCoords(){
         askForCoords();
     } else {
         const parseCoords = JSON.parse(loadedCoords);
-        console.log(parseCoords)
+        // console.log(parseCoords)
         getWeather(parseCoords.latitude, parseCoords.longitude);
     }
 }
