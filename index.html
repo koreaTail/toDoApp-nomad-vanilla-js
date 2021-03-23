@@ -6,29 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   </head>
   <body>
-    <div class="js-clock">
-      <h1>00:00</h1>
+    <div class="background-center">
+      <div class="data">
+        <div class="js-clock">
+          <h1>00:00</h1>
+        </div>
+        <form action="" class="js-form hide">
+          <input
+            class="js-input"
+            type="text"
+            placeholder="What is your name?"
+          />
+        </form>
+        <div class="screen-size">
+          <h5 class="screen-width"></h5>
+          <h5 class="screen-height"></h5>
+        </div>
+
+        <h4 class="js-identity hide">
+          안녕하세요 <strong class="js-username"></strong>님 ^^
+        </h4>
+        <h4>To do list</h4>
+        <form class="js-toDoForm" action="">
+          <input
+            class="js-toDoInput"
+            type="text"
+            placeholder="What's your achive?"
+          />
+        </form>
+        <ul class="js-toDoList"></ul>
+        <span class="js-weather"></span>
+      </div>
     </div>
-    <form action="" class="js-form hide">
-      <input class="js-input" type="text" placeholder="What is your name?" />
-    </form>
-    <h4 class="js-identity hide">
-      안녕하세요 <strong class="js-username"></strong>님 ^^
-    </h4>
-    <h4>To do list</h4>
-    <form class="js-toDoForm" action="">
-      <input
-        class="js-toDoInput"
-        type="text"
-        placeholder="What's your achive?"
-      />
-    </form>
-    <ul class="js-toDoList"></ul>
 
     <script src="clock.js"></script>
     <script src="name.js"></script>
+    <script src="screen.js"></script>
     <script src="toDo.js"></script>
+    <script src="backgroud.js"></script>
+    <script src="weather.js"></script>
   </body>
 </html>
