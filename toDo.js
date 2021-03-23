@@ -59,10 +59,12 @@ function paintToDo(text){
 
 
 
-function isThereHaveContents(e){
+function isThereHaveContents(e) {
     e.preventDefault();
+    // console.log("왜안먹어")
     
     if (toDoInput.value !== '') {   
+        e.preventDefault();
         const currentValue = toDoInput.value;
         paintToDo(currentValue);
         saveToDos();
@@ -73,12 +75,13 @@ function isThereHaveContents(e){
 
 function loadToDos(){
     const loadedToDos = localStorage.getItem(toDos_localStorage);
-    if (loadedToDos !== ''){
+    if (loadedToDos !== null){
+       
         let parsedToDos = JSON.parse(loadedToDos);
         parsedToDos.forEach(function(toDo){
             paintToDo(toDo.text);
         });
-    }
+    } 
 }
 
 function init(){
@@ -86,7 +89,6 @@ loadToDos();
 toDoForm.addEventListener("submit", isThereHaveContents);
 
 }
-
 init();
 
 
