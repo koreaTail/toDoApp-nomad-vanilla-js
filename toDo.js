@@ -7,47 +7,124 @@ const toDoForm = document.querySelector(".js-toDoForm");
 const toDoInput = toDoForm.querySelector(".js-toDoInput");
 const toDoList = document.querySelector(".js-toDoList");
 
+
 const toDos_localStorage = 'toDos';
+const checkedToDos_localStorage = 'checkedToDos'
 let toDos = [];
+// let checkedToDos = [];
 
 function saveToDos(){
     localStorage.setItem(toDos_localStorage , JSON.stringify(toDos))
+    // localStorage.setItem(checkedToDos_localStorage , JSON.stringify(checkedToDos))
+}
+
+function checkToDos(e){
+   
+    // 이벤트 눌리는 버튼
+    const btn = e.target;
+    // 그 버튼의 아이디
+    const targetLi = btn.parentNode.parentNode.parentNode;
+    // 그 아이디가 부여된 li의 js 이름을 checkedContent라고 부르자.
+    const checkedContent = document.getElementById(targetLi.id)
+    // li에 li-complite라는 class를 추가하자.
+    checkedContent.classList.add("li-complite");
+    
+    
+    // 로컬스토리지에서 삭제해주자.
+    const checkToDos = toDos.filter(function(toDo){
+        return toDo.id !==parseInt(targetLi.id);
+    });
+    toDos = checkToDos;
+    
+    
+
+    //checked로컬스토리지에 추가해주자.
+    // 우리는 아이디를 알고있어. 아이디와 text를 값을 지정하고, 그걸 checked에 추가.
+    // const checkedToDosArray = toDos.filter(function(toDoCheck){
+    //     return JSON.stringify(toDoCheck.id) === id;
+    // });
+    // checkedToDos.push(checkedToDosArray);
+
+
+    saveToDos();
+    // 좋은시도였으나.. 실패인걸로.. 하나만 선택돼 필터는..
+    // const checkedToDosArray = toDos.filter(function(toDoCheck){
+    //     return toDoCheck.id === parseInt(targetLi.id);
+    // });
+    // checkedToDos = checkedToDosArray;
 }
 
 
 
+//     function toggleman(){
+
+//     const checkedLi = document.querySelector(".li-complite")
+//     const checkedBtn = checkedLi.querySelector(".check");
+
+//     checkedBtn.addEventListener('click', returnning);
+
+//     function returnning(){
+//     // checkedBtn.forEach(function(liCom){
+//     //     liCom.classList.toggle("li-complite")
+
+//     if (checkedBtn === checkedLi.querySelector(".check")){
+//         checkedLi.classList.remove(".li-complite")
+//     } else{
+//         checkedLi.classList.add(".li-complite")
+//     }
+//     }
+// }
+
+
+
+
+
 function deleteToDos(e){
-    const btn = e.target;
-    const targetDiv = btn.parentNode
-
-    delSelectDiv = document.getElementById(targetDiv.id)
-    delSelectDiv.remove();
     
-    // 로컬에서도 제거/ 화면에서도 제거
+    const btn = e.target;
+    const targetLi = btn.parentNode.parentNode.parentNode;
 
+    document.getElementById(targetLi.id).remove();
+    
+    
     const cleanToDos = toDos.filter(function(toDo){
-        return toDo.id !== parseInt(targetDiv.id);
+        return toDo.id !== parseInt(targetLi.id);
     });
     toDos = cleanToDos;
     saveToDos();
 }
 
 
+
 function paintToDo(text){
-    const makeDiv = document.createElement('div');
     const makeLi = document.createElement('li');
-    const makeDelButton = document.createElement('button');
+    const makeDiv = document.createElement('div');
+    const makeCheckBtn = document.createElement('button');
+    const makeP = document.createElement('p');
+    const makeDelBtn = document.createElement('button');
     const newId = toDos.length + 1
-    // makeDelButton.style.marginLeft = "10px";
 
-    makeLi.innerText = text;
-    makeDelButton.innerText = `❌`;
-    makeDelButton.addEventListener("click", deleteToDos);
+    
+    makeCheckBtn.innerHTML = '<i class="fas fa-check"></i>'
+    makeP.innerText = text;
+    makeDelBtn.innerHTML = '<i class="fas fa-trash-alt"></i>'
+    makeCheckBtn.addEventListener("click", checkToDos);
+    makeDelBtn.addEventListener("click", deleteToDos);
 
-    makeDiv.appendChild(makeLi);
-    makeDiv.appendChild(makeDelButton);
-    toDoList.appendChild(makeDiv);
-    makeDiv.id = newId;
+    makeLi.appendChild(makeDiv);
+    makeDiv.appendChild(makeCheckBtn);
+    makeDiv.appendChild(makeP);
+    makeDiv.appendChild(makeDelBtn);
+    
+    makeLi.classList.add("card-li")
+    makeDiv.classList.add("card-div")
+    makeCheckBtn.classList.add("check")
+    makeP.classList.add('content')
+    makeDelBtn.classList.add("trash")
+
+    toDoList.appendChild(makeLi);
+    makeLi.id = newId;
+    
     const toDoObject = {
         text: text,
         id: newId
@@ -59,9 +136,9 @@ function paintToDo(text){
 
 
 
+
 function isThereHaveContents(e) {
     e.preventDefault();
-    // console.log("왜안먹어")
     
     if (toDoInput.value !== '') {   
         e.preventDefault();
@@ -93,71 +170,3 @@ init();
 
 
 
-
-// //노마드코더의 코드
-// const toDoForm = document.querySelector(".js-toDoForm"),
-//   toDoInput = toDoForm.querySelector("input"),
-//   toDoList = document.querySelector(".js-toDoList");
-
-// const TODOS_LS = "toDos";
-
-// let toDos = [];
-
-// function deleteToDo(event) {
-//   const btn = event.target;
-//   const li = btn.parentNode;
-//   toDoList.removeChild(li);
-//   const cleanToDos = toDos.filter(function(toDo) {
-//     return toDo.id !== parseInt(li.id);
-//   });
-//   toDos = cleanToDos;
-//   saveToDos();
-// }
-
-// function saveToDos() {
-//   localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
-// }
-
-// function paintToDo(text) {
-//   const li = document.createElement("li");
-//   const delBtn = document.createElement("button");
-//   const span = document.createElement("span");
-//   const newId = toDos.length + 1;
-//   delBtn.innerText = "❌";
-//   delBtn.addEventListener("click", deleteToDo);
-//   span.innerText = text;
-//   li.appendChild(delBtn);
-//   li.appendChild(span);
-//   li.id = newId;
-//   toDoList.appendChild(li);
-//   const toDoObj = {
-//     text: text,
-//     id: newId
-//   };
-//   toDos.push(toDoObj);
-//   saveToDos();
-// }
-
-// function handleSubmit(event) {
-//   event.preventDefault();
-//   const currentValue = toDoInput.value;
-//   paintToDo(currentValue);
-//   toDoInput.value = "";
-// }
-
-// function loadToDos() {
-//   const loadedToDos = localStorage.getItem(TODOS_LS);
-//   if (loadedToDos !== null) {
-//     const parsedToDos = JSON.parse(loadedToDos);
-//     parsedToDos.forEach(function(toDo) {
-//       paintToDo(toDo.text);
-//     });
-//   }
-// }
-
-// function init() {
-//   loadToDos();
-//   toDoForm.addEventListener("submit", handleSubmit);
-// }
-
-// init();

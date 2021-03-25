@@ -8,39 +8,64 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <script
+      src="https://kit.fontawesome.com/6584921572.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="background-center">
-      <div class="data">
-        <div class="js-clock">
-          <h1>00:00</h1>
+      <!-- 맨 처음에 누군지 질문하는 부분 -->
+      <form action="" class="js-form hide name-form">
+        <label class="first-ask-name">
+          똑똑. 누구십니까?
+          <input class="js-input input" type="text" placeholder="Nick name" />
+        </label>
+      </form>
+
+      <!-- 시간과 날씨 -->
+      <div class="time-and-weather-card">
+        <div class="left-day">
+          <span class="월일">03-24</span>
+          <strong class="요일">수</strong>
         </div>
-        <form action="" class="js-form hide">
-          <input
-            class="js-input"
-            type="text"
-            placeholder="What is your name?"
-          />
-        </form>
+        <div class="right-time">
+          <div class="js-clock">
+            <h1 class="시간">00:00</h1>
+          </div>
+        </div>
+      </div>
+      <p class="온도 js-weather">8℃ @daejeon</p>
+      <div class="data">
         <div class="screen-size">
           <h5 class="screen-width"></h5>
           <h5 class="screen-height"></h5>
         </div>
 
+        <!-- 이름 출력되는 부분 -->
         <h4 class="js-identity hide">
-          안녕하세요 <strong class="js-username"></strong>님 ^^
+          안녕하세요 , <strong class="js-username"></strong>님 :)
         </h4>
-        <h4>To do list</h4>
-        <form class="js-toDoForm" action="">
-          <input
-            class="js-toDoInput"
-            type="text"
-            placeholder="What's your achive?"
-          />
+
+        <h4 class="todo-title">To do list</h4>
+        <form class="js-toDoForm todo-form" action="">
+          <input class="js-toDoInput" type="text" placeholder="Write a to do" />
         </form>
-        <ul class="js-toDoList"></ul>
-        <span class="js-weather"></span>
+        <div class="=todo-flex">
+          <ul class="js-toDoList todo-ul">
+            <!-- <li class="card-li li-complite">
+              <div class="card-div">
+                <button class="check">
+                  <i class="fas fa-check complite"></i>
+                </button>
+                <p class="content">content</p>
+                <button class="trash"><i class="fas fa-trash-alt"></i></button>
+              </div>
+            </li> -->
+          </ul>
+        </div>
       </div>
+      <!-- <span class="js-weather"></span> -->
     </div>
 
     <script src="clock.js"></script>

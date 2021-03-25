@@ -1,6 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&family=Noto+Serif+KR:wght@300;400;700;900&display=swap");
+
 * {
   margin: 0;
   box-sizing: border-box;
+  font-family: "Kiwi Maru", "Noto Serif KR", serif;
 }
 
 body {
@@ -10,9 +13,8 @@ body {
   height: 100vh;
 }
 
-h1 {
-  margin: 0px 0px 20px 0px;
-  font-size: 40px;
+input {
+  font-family: "Kiwi Maru", "Noto Serif KR", serif;
 }
 
 h4 {
@@ -26,7 +28,6 @@ h4 {
 .hide {
   display: none;
 }
-
 /* 
 form {
   background-color: red;
@@ -46,22 +47,252 @@ ul {
 
 li {
   display: inline-block;
+  margin-bottom: 15px;
+}
+
+/* 시간과 날씨 */
+
+.time-and-weather-card {
+  font-size: 60px;
+  position: absolute;
+  top: 28%;
+  left: 20%;
+}
+
+.온도 {
+  font-size: 15px;
+  position: absolute;
+  bottom: 0.5%;
+  right: 0.5%;
+  background-color: rgba(0, 0, 0, 0.55);
+  padding: 10px;
+  border-radius: 8px;
+  text-align: right;
+}
+
+/* 
+.time-and-weather-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 120px;
+  min-width: 280px;
+  background-color: white;
+  border: 0.1px solid white;
+  border-radius: 15px;
   margin-bottom: 20px;
 }
 
-input {
-  margin-bottom: 40px;
+.right-time {
+  background-color: white;
+  color: black;
+  width: 65%;
+  height: 100%;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-button {
-  margin-left: 10px;
+.시간 {
+  font-size: 3em;
+  margin-bottom: 8px;
 }
+
+.left-day {
+  background-color: #badc58;
+  width: 35%;
+  height: 100%;
+  border-radius: 3px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.요일 {
+  font-size: 3em;
+  display: inline-block;
+  margin-bottom: 8px;
+} */
+
+.data {
+  padding: 15px;
+  height: 600px;
+  width: 330px;
+  /* align-items: center; */
+  /* flex-direction: column; */
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 15%;
+  left: 57%;
+  border-radius: 8px;
+  animation: fadeIn 1s linear;
+}
+
+/* NAME form-input css */
+
+.name-form {
+  width: 100%;
+}
+
+.first-ask-name {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 7em;
+  height: 80vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.first-ask-name label {
+  margin-bottom: 30px;
+}
+
+.input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 0;
+  outline-style: none;
+  line-height: normal;
+  font-size: 70px;
+  padding: 15px 0px;
+  width: 400px;
+  border: none;
+  border-bottom: 1px solid white;
+  color: white;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0);
+  vertical-align: middle;
+  position: relative;
+}
+
+.input::placeholder {
+  color: rgba(187, 187, 187, 0.7);
+  font-size: 50px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* to do css */
+
+.todo-title {
+  text-align: left;
+  color: #badc58;
+}
+
+.todo-form {
+  text-align: center;
+}
+
+.todo-form input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 0;
+  outline-style: none;
+  line-height: normal;
+  font-size: 20px;
+  padding: 8.5px 0px;
+  width: 300px;
+  border: none;
+  color: white;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  vertical-align: middle;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.todo-form input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 15px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* todo card */
+.todo-ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 10px;
+  width: 300px;
+  min-height: 35px;
+}
+
+.card-div button {
+  color: #badc58;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  /* border: 0.1px solid rgba(255, 255, 255, 0.3); */
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.card-div button i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.card-div .content {
+  font-size: 15px;
+  width: 80%;
+  display: block;
+  justify-content: left;
+}
+
+/* 취소선 스타일 */
+
+.li-complite {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.li-complite button {
+  color: rgba(186, 220, 88, 0.2);
+}
+
+.li-complite .content {
+  text-decoration: line-through;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration-color: rgba(186, 220, 88, 0.5);
+}
+
+/* background css */
 
 .background-center {
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: 50% 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes fadeIn {
@@ -71,16 +302,4 @@ button {
   to {
     opacity: 1;
   }
-}
-
-.data {
-  padding: 10px;
-  /* align-items: center; */
-  /* flex-direction: column; */
-  background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  border-radius: 8px;
-  animation: fadeIn 1s linear;
 }

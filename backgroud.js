@@ -1,7 +1,7 @@
 const body = document.querySelector('body');
 const backgroundcenter = body.querySelector('.background-center');
 
-const IMG_NUMBER = 24;
+const IMG_NUMBER = 12;
 
 // function paitImage(imgNumber){
 //     const image = new Image();
