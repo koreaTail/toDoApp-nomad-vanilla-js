@@ -264,6 +264,7 @@ li {
   width: 80%;
   display: block;
   justify-content: left;
+  padding: 5px 0px;
 }
 
 /* 취소선 스타일 */
