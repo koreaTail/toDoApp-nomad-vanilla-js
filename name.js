@@ -3,14 +3,14 @@ const input = form.querySelector(".js-input");
 const identity = document.querySelector(".js-identity");
 const username = identity.querySelector(".js-username");
 const timeWeather = document.querySelector(".time-and-weather-card");
-const toDoList = document.querySelector(".data");
+const toDoListData = document.querySelector(".data");
 
 
 if (localStorage.getItem("username") === null) {
     
     form.classList.remove("hide");
     timeWeather.classList.add("hide");
-    toDoList.classList.add("hide");
+    toDoListData.classList.add("hide");
 
     form.addEventListener("submit", 저장)
 
